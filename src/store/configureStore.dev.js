@@ -7,10 +7,12 @@ import sagas from '../sagas';
 import DevTools from '../containers/DevTools';
 import loadAsyncState from './loadAsyncState';
 
-const sagaMiddleware = saga();
+import {sagaMonitor, reactotronEnhancer} from '../containers/reactotron';
+const sagaMiddleware = saga({sagaMonitor});
 
 const enhancer = compose(
     applyMiddleware(sagaMiddleware),
+    reactotronEnhancer,
     DevTools.instrument(),
     persistState(
         window.location.href.match(

@@ -1,10 +1,8 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import {size} from 'lodash';
 
-const Showing = ({collection = [], position = 1}) => (
-    <Fragment>
-        <h5>Mostrando {position} - {size(collection)} resultados.</h5>
-    </Fragment>
+const Showing = ({items = [], position = 1}) => (
+      <h6 className='font-weight-bold ml-3'>Mostrando {position} - {size(items)} resultados.</h6>
 );
 
 export default Showing;

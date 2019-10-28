@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Title = ({label}) => (
-    <div className="col-md-8">
-        <h2>
-            <i className="fas fa-users"></i> {label}
-        </h2>
+    <div className={"row col-12 mt-1 mb-1"}>
+        <div className={"text-left"}>
+            <h4>{label}</h4>
+        </div>
     </div>
 );
 

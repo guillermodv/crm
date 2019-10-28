@@ -22,11 +22,6 @@ const Submenu = () =>(
                 </li>
                 <li className="nav-item">
                     <Link to={'/accounts'} className="nav-link">
-                        Información
-                    </Link>
-                </li>
-                <li className="nav-item">
-                    <Link to={'/accounts'} className="nav-link">
                         Oportunidades
                     </Link>
                 </li>

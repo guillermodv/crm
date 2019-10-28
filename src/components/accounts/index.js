@@ -1,23 +1,30 @@
-import React, {Fragment} from 'react';
+import React, {useState, useEffect, Fragment} from 'react';
 import {isEmpty} from 'lodash';
-import {Link} from "react-router-dom";
-import {LoadingIndicator, Title} from "../commons";
-import {accounts} from "../../const"
-import AccountTable from "./AccountList";
+import {useDispatch, useSelector} from 'react-redux';
 
-const AccountsList = () => (
-    <Fragment>
-        <Title label="Clientes"/>
-        <div className="text-right col-md-12 mb-12">
-            <Link to="/account/new" className="btn btn-primary pull-right">
-                <i className="fas fa-plus"></i> {''}
-                Nuevo Cliente
-            </Link>
-        </div>
-        {isEmpty(accounts) && (<LoadingIndicator/>)}
-        {!isEmpty(accounts) && (<AccountTable accounts={accounts}/>)}
-    </Fragment>
-);
+import {LoadingIndicator, Message, TitleWithButton} from "../commons";
+import {requestAccounts} from "../../actions/accounts";
+import AccountTable from "./AccountTable";
+
+const AccountsList = () => {
+    const dispatch = useDispatch();
+    const {accounts, status, loading} = useSelector(state => state.accounts);
+    const [show, setShow] = useState(true);
+
+    useEffect(() => {
+        dispatch(requestAccounts());
+        window.setTimeout(()=> setShow(false),2000);
+    }, [dispatch]);
+
+    return (
+        <Fragment>
+            <TitleWithButton label="Cuentas" buttonLabel="Nueva Cuenta"/>
+            {loading && <LoadingIndicator/>}
+            {!loading && !isEmpty(accounts) && (<AccountTable accounts={accounts}/>)}
+            {show && status && <Message label={status}/> }
+        </Fragment>
+    );
+};
 
 export default AccountsList;
 

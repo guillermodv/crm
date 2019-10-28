@@ -1,13 +1,33 @@
 import LoadingIndicator from "./LoadingIndicator";
 import Header from "./layout/Header";
-import Footer from "./layout/Footer"
+import Footer from "./layout/Footer";
+import Error from "./Error";
+import Message from "./Message";
+import Menu from "./layout/Header/menu";
+import NotesTable from "./NotesTable";
+import GenericsTable from "./GeneticsTable";
+import Search   from "./layout/Header/search";
 import Pagination from "./layout/Pagination";
 import Showing from "./Showing";
 import Title from "./Title";
+import TitleWithButton from "./TitleWithButton";
+import ShowIcon from "./ShowIcon";
+import ShowIconWithLabel from "./ShowIconWithLabel";
+import SelectWithLabel from "./SelectWithLabel";
 
 export {Header};
+export {Menu};
 export {LoadingIndicator};
 export {Footer};
+export {Error};
+export {Message};
+export {NotesTable};
+export {GenericsTable};
 export {Pagination};
 export {Showing};
 export {Title};
+export {TitleWithButton};
+export {ShowIcon};
+export {ShowIconWithLabel};
+export {SelectWithLabel};
+export {Search};

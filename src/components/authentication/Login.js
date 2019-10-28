@@ -1,81 +1,95 @@
-import React, { Component } from 'react';
-import {connect} from "react-redux";
+import React, {useState, useEffect, Fragment} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {useHistory} from 'react-router';
+import {capitalize} from 'lodash';
 
-let auth = {
-    email: '',
-    password: ''
-};
+import Error from "../commons/Error";
+import {requestStaticData} from "../../actions/staticData";
+import {requestValidateSession} from "../../actions/session";
+import loginSchema from "../../schema/login";
 
-class Login extends Component {
-    state = {
-        auth
-    };
+const Login = () => {
+    const dispatch = useDispatch();
+    const history = useHistory();
+    let {profile, loading} = useSelector(state => state.session);
 
-    handleChange = ({target: {name, value}}) => {
-        let auth = {
-            ...this.state.auth, [name]: value
-        };
-        this.setState({
-            auth
-        })
-    };
+    const redirect = path => history.push(path);
+    const handleAuth = auth => dispatch(requestValidateSession(auth));
 
-    //handleChange = ({target: {name, value}}) => this.setState(({auth}) => ({...auth, [name]: value}));
+    useEffect(() => {
+        dispatch(requestStaticData());
+    }, [dispatch, profile, loading]);
 
-    render() {
-        return (
-            <div className="row justify-content-center">
-                <div className="col-md-5">
+    const [auth, setAuth] = useState({});
+    const [error, setError] = useState('');
+
+    const handleChange = ({target: {name, value}}) => (
+        setAuth({...auth, [name]: value})
+    );
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+        const valid = await loginSchema.isValid({email: auth.email, password: auth.password});
+        if(!valid) {
+            loginSchema.validate({email: auth.email, password: auth.password}).catch(function({errors, path}) {
+                setError(`${capitalize(path)}: ${errors}`);
+            });
+        } else {
+            setError("");
+            handleAuth(auth);
+            window.location = '/'
+        }
+    }
+
+    return(
+        <Fragment>
+            {profile && redirect('/accounts')}
+            &nbsp;
+            <div className="row justify-content-center border-1">
+                <img src="../../../../logoLogin.png" alt={"..."}/>
+            </div>
+            <div className="row justify-content-center border-1">
+                <div className="rom">
                     <div className="card mt-5">
                         <div className="card-body">
-                            <div className={"row"}>
-                                <div className={"col-6"}>
-                                    <img src="../../../../logo.png"  style={{'width':'60px'}} alt="..."/>
-                                </div>
-                                <div className={"col-6 py-2"}>
-                                    <h2>CARMOCAL</h2>
-                                </div>
-                            </div>
-
-                            <form onSubmit={()=> null}>
+                            <form onSubmit={() => handleSubmit(auth)}>
                                 <div className="form-group">
-                                    <label>User:</label>
                                     <input
-                                        type="email"
+                                        type="input"
                                         className="form-control"
                                         name="email"
+                                        placeholder="email"
                                         required
-                                        value={this.state.auth.email}
-                                        onChange={(e) => this.handleChange(e)}
+                                        value={auth.email}
+                                        onChange={(e) => handleChange(e)}
                                     />
                                 </div>
-
                                 <div className="form-group">
-                                    <label>Password:</label>
                                     <input
                                         type="password"
                                         className="form-control"
                                         name="password"
+                                        placeholder="password"
                                         required
-                                        value={this.state.auth.password}
-                                        onChange={(e) => this.handleChange(e)}
+                                        value={auth.password}
+                                        onChange={(e) => handleChange(e)}
                                     />
                                 </div>
                                 <input
                                     type="submit"
                                     className="btn btn-success btn-block"
-                                    value="Inicar Sesión"
+                                    onClick={(e) => handleSubmit(e)}
+                                    value="Iniciar Sesión"
                                 />
                             </form>
+                            {!(error === '') && !loading && <Error label={error} />}
                         </div>
+                        <p className="font-weight-bold text-center">¿Olvidaste tu contraseña?</p>
                     </div>
                 </div>
             </div>
-        );
-    }
-}
+        </Fragment>
+    );
+};
 
-export default connect(
-    null,
-    null
-)(Login);
+export default Login;

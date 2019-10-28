@@ -23,6 +23,20 @@ class Header extends Component {
                             </Link>
                         </li>
                     </ul>
+                    <ul className="navbar-nav mr-auto">
+                        <li className="nav-item">
+                            <Link to={'/accounts'} className="nav-link">
+                                Vendedores
+                            </Link>
+                        </li>
+                    </ul>
+                    <ul className="navbar-nav mr-auto">
+                        <li className="nav-item">
+                            <Link to={'/accounts'} className="nav-link">
+                                Oportunidades
+                            </Link>
+                        </li>
+                    </ul>
                     <form className="form-inline ml-auto">
                         <div className="md-form my-0">
                             <input className="form-control" type="text" placeholder="Search" aria-label="Search"/>

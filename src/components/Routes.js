@@ -1,26 +1,45 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import {Footer, Header} from "./commons";
 import AccountsList from "./accounts";
 import AccountEdit from "./accounts/AccountEdit";
-import Account from "./accounts/Account";
+import AccountItem from "./accounts/AccountItem";
+import EventsList from "./events";
+import EventItem from "./events/EventItem";
+import UnderConstruction from "./commons/UnderConstruction";
 import Login from "./authentication/Login";
+import {requestFetchSession} from "../actions/session";
+import AccountNew from "./accounts/AccountNew";
 
-const Routes = () => (
-    <Router>
-        <Header/>
-        <div className="col-md-12 mb-12">
+const Routes = () => {
+    const dispatch = useDispatch();
+    const profile = useSelector(state => state.session.profile);
+
+    useEffect(() => {
+        dispatch(requestFetchSession());
+    }, [dispatch]);
+
+    return (
+        <Router>
+            <Header/>
             <Switch>
-                <Route exact path="/" component={AccountsList} />
-                <Route exact path="/accounts" component={AccountsList} />
-                <Route exact path="/account/new" component={AccountEdit} />
-                <Route exact path="/account/show/:id" component={Account} />
-                <Route exact path="/account/edit/:id" component={AccountEdit} />
-                <Route exact path="/login" component={Login} />
+                {!profile && <Route exact path="/" component={Login}/>}
+                {!profile && <Route exact path="/login" component={Login}/>}
+                {!profile && <Route exact path="/*" component={Login}/>}
+                {profile && <Route exact path="/login" component={Login}/>}
+                {profile && <Route exact path="/" component={AccountsList}/>}
+                {profile && <Route exact path="/accounts" component={AccountsList}/>}
+                {profile && <Route exact path="/account/new" component={AccountNew}/>}
+                {profile && <Route exact path="/account/show/:id" component={AccountItem}/>}
+                {profile && <Route exact path="/account/edit/:id" component={AccountEdit}/>}
+                {profile && <Route exact path="/events" component={EventsList}/>}
+                {profile && <Route exact path="/event/show/:id" component={EventItem}/>}
+                {profile && <Route exact path="/*" component={UnderConstruction}/>}
             </Switch>
-        </div>
-        <Footer/>
-    </Router>
-);
+            <Footer/>
+        </Router>
+    );
+};
 
 export default Routes;
