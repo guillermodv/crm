@@ -1,9 +1,10 @@
-import React from 'react';
-import {size} from 'lodash';
+import React from "react";
+import { size } from "lodash";
 
-const Showing = ({items = [], position = 1}) => (
-      <h6 className='font-weight-bold ml-3'>Mostrando {position} - {size(items)} resultados.</h6>
+const Showing = ({ items = [], position = 1 }) => (
+  <h6 className="font-weight-bold ml-3">
+    Mostrando {position} - {size(items)} resultados.
+  </h6>
 );
 
 export default Showing;
-

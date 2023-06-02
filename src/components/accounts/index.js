@@ -1,30 +1,29 @@
-import React, {useState, useEffect, Fragment} from 'react';
-import {isEmpty} from 'lodash';
-import {useDispatch, useSelector} from 'react-redux';
+import React, { useState, useEffect, Fragment } from "react";
+import { isEmpty } from "lodash";
+import { useDispatch, useSelector } from "react-redux";
 
-import {LoadingIndicator, Message, TitleWithButton} from "../commons";
-import {requestAccounts} from "../../actions/accounts";
+import { LoadingIndicator, Message, TitleWithButton } from "../commons";
+import { requestAccounts } from "../../actions/accounts";
 import AccountTable from "./AccountTable";
 
 const AccountsList = () => {
-    const dispatch = useDispatch();
-    const {accounts, status, loading} = useSelector(state => state.accounts);
-    const [show, setShow] = useState(true);
+  const dispatch = useDispatch();
+  const { accounts, status, loading } = useSelector((state) => state.accounts);
+  const [show, setShow] = useState(true);
 
-    useEffect(() => {
-        dispatch(requestAccounts());
-        window.setTimeout(()=> setShow(false),2000);
-    }, [dispatch]);
+  useEffect(() => {
+    dispatch(requestAccounts());
+    window.setTimeout(() => setShow(false), 2000);
+  }, [dispatch]);
 
-    return (
-        <Fragment>
-            <TitleWithButton label="Cuentas" buttonLabel="Nueva Cuenta"/>
-            {loading && <LoadingIndicator/>}
-            {!loading && !isEmpty(accounts) && (<AccountTable accounts={accounts}/>)}
-            {show && status && <Message label={status}/> }
-        </Fragment>
-    );
+  return (
+    <Fragment>
+      <TitleWithButton label="Cuentas" buttonLabel="Nueva Cuenta" />
+      {loading && <LoadingIndicator />}
+      {!loading && !isEmpty(accounts) && <AccountTable accounts={accounts} />}
+      {show && status && <Message label={status} />}
+    </Fragment>
+  );
 };
 
 export default AccountsList;
-
