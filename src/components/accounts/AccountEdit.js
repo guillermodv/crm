@@ -35,7 +35,7 @@ const AccountEdit = (props) => {
       dispatch(requestAccount(props.match.params.id));
       setAccount(accountItem);
     }
-  }, [props.match.params.id, accountItem, dispatch]);
+  }, [props.match.params.id, accountItem, dispatch, account]);
 
   function handleCancel() {
     setError("");

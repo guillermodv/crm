@@ -20,7 +20,11 @@ const AccountsList = () => {
     <Fragment>
       <TitleWithButton label="Cuentas" buttonLabel="Nueva Cuenta" />
       {loading && <LoadingIndicator />}
-      {!loading && !isEmpty(accounts) && <AccountTable accounts={accounts} />}
+      {!loading && !isEmpty(accounts) && (
+        <div className="mx-2">
+          <AccountTable accounts={accounts} />
+        </div>
+      )}
       {show && status && <Message label={status} />}
     </Fragment>
   );
