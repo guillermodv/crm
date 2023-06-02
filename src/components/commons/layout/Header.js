@@ -5,11 +5,11 @@ import ShowIcon from "../ShowIcon";
 const Header = () => (
   <nav
     className="navbar navbar-expand-lg navbar-dark bg-primary "
-    style={{ height: "60px" }}
+    style={{ height: "40px" }}
   >
     <img
       src="../../../../logo.png"
-      style={{ width: "50px", border: "1px solid white" }}
+      style={{ width: "30px", border: "1px solid white" }}
       alt="..."
     />
     <nav className="navbar navbar-light">

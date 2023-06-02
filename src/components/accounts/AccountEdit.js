@@ -76,11 +76,11 @@ const AccountEdit = (props) => {
   return (
     <Fragment>
       <div className="row col-12 mt-2 style={{'font-size': '14px'}}">
-        <div className={"col-sm-6 text-left"}>
-          <h4>
+        <div className={"col-sm-6 text-left mt-1"}>
+          <h3>
             <ShowIcon type="fas fa-pen" />
-            Editar Cuenta
-          </h4>
+            &nbsp;&nbsp; Editar Cuenta
+          </h3>
         </div>
         <div className={"col-6 text-right"}>
           <Link to="/accounts" className="btn btn-secondary">
