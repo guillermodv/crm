@@ -22,29 +22,35 @@ const Routes = () => {
 
   return (
     <Router>
-      <Header />
-      <Switch>
-        {!profile && <Route exact path="/" component={Login} />}
-        {!profile && <Route exact path="/login" component={Login} />}
-        {!profile && <Route exact path="/*" component={Login} />}
-        {profile && <Route exact path="/login" component={Login} />}
-        {profile && <Route exact path="/" component={AccountsList} />}
-        {profile && <Route exact path="/accounts" component={AccountsList} />}
-        {profile && <Route exact path="/account/new" component={AccountNew} />}
-        {profile && (
-          <Route exact path="/account/show/:id" component={AccountItem} />
-        )}
-        {profile && (
-          <Route exact path="/account/edit/:id" component={AccountEdit} />
-        )}
-        {profile && <Route exact path="/events" component={EventsList} />}
-        {profile && (
-          <Route exact path="/event/show/:id" component={EventItem} />
-        )}
-        {profile && <Route exact path="/*" component={UnderConstruction} />}
-        {profile && <Route exact path="/under" component={UnderConstruction} />}
-      </Switch>
-      <Footer />
+      <div style={{ backgroundColor: "#F0F8FF" }}>
+        <Header />
+        <Switch>
+          {!profile && <Route exact path="/" component={Login} />}
+          {!profile && <Route exact path="/login" component={Login} />}
+          {!profile && <Route exact path="/*" component={Login} />}
+          {profile && <Route exact path="/login" component={Login} />}
+          {profile && <Route exact path="/" component={AccountsList} />}
+          {profile && <Route exact path="/accounts" component={AccountsList} />}
+          {profile && (
+            <Route exact path="/account/new" component={AccountNew} />
+          )}
+          {profile && (
+            <Route exact path="/account/show/:id" component={AccountItem} />
+          )}
+          {profile && (
+            <Route exact path="/account/edit/:id" component={AccountEdit} />
+          )}
+          {profile && <Route exact path="/events" component={EventsList} />}
+          {profile && (
+            <Route exact path="/event/show/:id" component={EventItem} />
+          )}
+          {profile && <Route exact path="/*" component={UnderConstruction} />}
+          {profile && (
+            <Route exact path="/under" component={UnderConstruction} />
+          )}
+        </Switch>
+        <Footer />
+      </div>
     </Router>
   );
 };
