@@ -60,8 +60,9 @@ const Header = () => (
         <div className="md-form my-0">
           <input
             className="form-control"
+            style={{ height: "30px", width: "250px" }}
             type="text"
-            placeholder="Search"
+            placeholder="Buscar Cuenta"
             aria-label="Search"
           />
         </div>
@@ -69,6 +70,7 @@ const Header = () => (
           href="#!"
           className="btn btn-danger btn-outline-white btn-md my-0 ml-sm-2 text-white"
           type="submit"
+          style={{ height: "30px" }}
         >
           <ShowIcon type={"fa fa-search"} />
         </button>

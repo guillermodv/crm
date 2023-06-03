@@ -40,7 +40,7 @@ const AccountTable = ({ accounts = [] }) => (
               <td className="text-right">
                 <Link
                   to={`/account/show/${account._id}`}
-                  className="btn btn-success"
+                  className="btn btn-secondary"
                 >
                   <ShowIcon type={"fa fa-pencil"} />
                 </Link>
