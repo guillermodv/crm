@@ -16,6 +16,7 @@ import {
   GenericsTable,
   NotesTable,
   Error,
+  ShowIcon,
 } from "../commons";
 
 import { requestAccount, requestRemoveAccount } from "../../actions/accounts";
@@ -72,20 +73,14 @@ const AccountItem = (props) => {
             <div className="col-6 text-right">
               <div className="mx-2">
                 <Link to="/accounts" className="btn btn-secondary">
-                  <ShowIconWithLabel
-                    label={"Volver Al Listado"}
-                    type={"fas fa-arrow-circle-left"}
-                  />
+                  <ShowIcon type={"fas fa-arrow-circle-left"} />
                 </Link>
                 &nbsp;
                 <Link
                   to={`/account/edit/${account._id}`}
                   className="btn btn-primary"
                 >
-                  <ShowIconWithLabel
-                    label={"Editar Cuenta"}
-                    type={"fas fa-pencil-alt"}
-                  />
+                  <ShowIcon type={"fas fa-pencil-alt"} />
                 </Link>
                 &nbsp;
                 <button
@@ -93,7 +88,7 @@ const AccountItem = (props) => {
                   className="btn btn-danger"
                   onClick={() => handleRemove()}
                 >
-                  <ShowIconWithLabel label="Borrar" type="fas fa-trash-alt" />
+                  <ShowIcon type="fas fa-trash" />
                 </button>
               </div>
             </div>
@@ -140,7 +135,7 @@ const AccountItem = (props) => {
             onClick={() => handleButton()}
             type="button"
           >
-            Agregar
+            +
           </button>
         </div>
       </div>

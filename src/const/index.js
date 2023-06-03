@@ -119,12 +119,12 @@ const ACCOUNTS = [
   {
     _id: "1",
     name: "Cliente Argentino",
-    ranking: "3",
-    potential: "1",
-    state: "3",
+    ranking: "ALTO",
+    potential: "ALTO",
+    state: "APROBADO",
     service:
       "Cliente\tIBC | Venta - GerenciamientoIsotanques | Lavado y Servicio estándarCales",
-    type: "2",
+    type: "Cuenta Corriente",
     industry: "Aromas y Fragancias",
     socialName: "Argentina S.A",
     cuit: "20-34912391-2",
@@ -134,12 +134,12 @@ const ACCOUNTS = [
   {
     _id: "2",
     name: "Multiple Test",
-    ranking: "1",
-    potential: "1",
-    state: "1",
+    ranking: "MEDIO",
+    potential: "ALTO",
+    state: "POSIBLE",
     service:
       "Cliente\tIBC | RebottlingIsotanques | -Cales | CalCamiones y Cisternas",
-    type: "1",
+    type: "ESPORADICO",
     industry: "Aromas y Fragancias",
     socialName: "Argentina S.A",
     creationDate: "14/11/2017",
@@ -149,12 +149,12 @@ const ACCOUNTS = [
     _id: "3",
     name: "Test Argentina",
     cuit: "20-34912391-2",
-    ranking: "2",
-    potential: "2",
-    state: "1",
+    ranking: "MEDIO",
+    potential: "MEDIO",
+    state: "AGENDADO REUNION",
     service:
       "ClienteProveedor\tIBC | Nuevo - Gerenciamiento - VentaCompra de IBC",
-    type: "2",
+    type: "CUENTA CORRIENTE",
     industry: "Aromas y Fragancias",
     socialName: "Argentina S.A",
     creationDate: "14/11/2017",
@@ -164,30 +164,30 @@ const ACCOUNTS = [
 
 const RANKING = [
   {
-    value: "1",
+    value: "ALTO",
     label: "A",
   },
   {
-    value: "2",
+    value: "MEDIO",
     label: "B",
   },
   {
-    value: "3",
+    value: "BAJO",
     label: "D",
   },
 ];
 
 const POTENTIAL = [
   {
-    value: "1",
+    value: "ALTO",
     label: "Alto",
   },
   {
-    value: "2",
+    value: "POSIBLE",
     label: "Medio",
   },
   {
-    value: "3",
+    value: "BAJO",
     label: "Bajo",
   },
 ];
