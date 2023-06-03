@@ -11,7 +11,7 @@ const NotesTable = ({
   <div className="mx-2">
     <table
       className="table table-striped align-content-center border-bottom"
-      style={{ "font-size": "14px" }}
+      style={{ "font-size": "12px" }}
     >
       <thead className="text-light bg-primary">
         <tr>

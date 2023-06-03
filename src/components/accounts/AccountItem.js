@@ -3,7 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { isEmpty } from "lodash";
 
-import { ADRESSCONTENT, CONTACTSCONTENT, NOTESCONTENT } from "../../const";
+import {
+  ADRESSCONTENT,
+  CONTACTSCONTENT,
+  EVENTS,
+  NOTESCONTENT,
+} from "../../const";
+
 import AccountCard from "./AccountCard";
 import {
   ShowIconWithLabel,
@@ -11,6 +17,7 @@ import {
   NotesTable,
   Error,
 } from "../commons";
+
 import { requestAccount, requestRemoveAccount } from "../../actions/accounts";
 
 const AccountItem = (props) => {
@@ -121,7 +128,7 @@ const AccountItem = (props) => {
         </div>
         <div className="text-right">
           <button
-            className="btn btn-light"
+            className="btn btn-secondary"
             onClick={() => handleButton()}
             type="button"
           >
@@ -129,7 +136,7 @@ const AccountItem = (props) => {
           </button>
           &nbsp;
           <button
-            className="btn btn-light"
+            className="btn btn-secondary"
             onClick={() => handleButton()}
             type="button"
           >
@@ -207,6 +214,32 @@ const AccountItem = (props) => {
                 showId={false}
                 showDate={false}
               />
+            </div>
+          </div>
+        </div>
+        <br />
+        <div className="card mx-2">
+          <div className="card-header" id="headingOne">
+            <h5 className="mb-0">
+              <button
+                className="btn btn-link"
+                data-toggle="collapse"
+                data-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                Eventos
+              </button>
+            </h5>
+          </div>
+          <div
+            id="collapseOne"
+            className="collapse collapsed"
+            aria-labelledby="headingOne"
+            data-parent="#accordion"
+          >
+            <div className="card-body">
+              <GenericsTable items={EVENTS} showId={false} showDate={false} />
             </div>
           </div>
         </div>

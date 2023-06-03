@@ -103,7 +103,7 @@ const AccountEdit = (props) => {
           className="btn btn-success"
           onClick={() => handleSubmit()}
         >
-          <ShowIconWithLabel label="Aceptar" type="fas fa-plus" />
+          <ShowIcon type="fas fa-check" />
         </button>
         &nbsp;
         <button
@@ -112,7 +112,7 @@ const AccountEdit = (props) => {
           className="btn btn-warning"
           onClick={() => handleCancel()}
         >
-          <ShowIconWithLabel label="Cancelar" type="fas fa-minus" />
+          <ShowIcon l type="fas fa-trash" />
         </button>
       </div>
     </Fragment>

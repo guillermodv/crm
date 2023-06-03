@@ -37,15 +37,22 @@ const Header = () => (
       </ul>
       <ul className="navbar-nav mr-auto">
         <li className="nav-item">
-          <Link to={"/accounts"} className="nav-link">
+          <Link to={"/under"} className="nav-link">
             Vendedores
           </Link>
         </li>
       </ul>
       <ul className="navbar-nav mr-auto">
         <li className="nav-item">
-          <Link to={"/accounts"} className="nav-link">
+          <Link to={"/under"} className="nav-link">
             Oportunidades
+          </Link>
+        </li>
+      </ul>
+      <ul className="navbar-nav mr-auto">
+        <li className="nav-item">
+          <Link to={"/under"} className="nav-link">
+            Reclamos
           </Link>
         </li>
       </ul>

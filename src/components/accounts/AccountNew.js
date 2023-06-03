@@ -74,7 +74,7 @@ const AccountNew = (props) => {
         <div className={"col-sm-6 text-left"}>
           <h4>
             <ShowIcon type="fas fa-pen" />
-            Nueva Cuenta.
+            &nbsp; Nueva Cuenta.
           </h4>
         </div>
         <div className={"col-6 text-right"}>
@@ -98,7 +98,7 @@ const AccountNew = (props) => {
           className="btn btn-success"
           onClick={() => handleSubmit()}
         >
-          <ShowIconWithLabel label="Aceptar" type="fas fa-plus" />
+          <ShowIcon type="fas fa-check" />
         </button>
         &nbsp;&nbsp;
         <button
@@ -107,7 +107,7 @@ const AccountNew = (props) => {
           className="btn btn-warning"
           onClick={() => handleCancel()}
         >
-          <ShowIconWithLabel label="Cancelar" type="fas fa-minus" />
+          <ShowIcon type="fas fa-trash" />
         </button>
       </div>
     </Fragment>

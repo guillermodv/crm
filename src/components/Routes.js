@@ -42,6 +42,7 @@ const Routes = () => {
           <Route exact path="/event/show/:id" component={EventItem} />
         )}
         {profile && <Route exact path="/*" component={UnderConstruction} />}
+        {profile && <Route exact path="/under" component={UnderConstruction} />}
       </Switch>
       <Footer />
     </Router>

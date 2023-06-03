@@ -6,7 +6,7 @@ const AccountTable = ({ accounts = [] }) => (
   <Fragment>
     <table
       className="table table-striped mt-1 align-content-center"
-      style={{ "font-size": "14px" }}
+      style={{ "font-size": "12px" }}
     >
       <thead className="text-light bg-primary">
         <tr>
