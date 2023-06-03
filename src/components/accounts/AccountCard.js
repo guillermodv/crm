@@ -25,20 +25,20 @@ const AccountCard = ({ account }) => (
     <div className="row col-12">
       <div className="col-3">
         <span className="font-weight-bold">Oportunidades:</span> &nbsp;
-        <span className="font-italic ">-</span>
+        <span className="font-italic ">2</span>
       </div>
       <div className="col-3">
         <span className="font-weight-bold">Contactos:</span> &nbsp;
-        <span className="font-italic ">-</span>
+        <span className="font-italic ">3</span>
       </div>
       <div className="col-3">
         <span className="font-weight-bold">Notas:</span> &nbsp;
-        <span className="font-italic ">-</span>
+        <span className="font-italic ">1</span>
       </div>
       <div className="col-3">
         <span className="font-weight-bold">Eventos:</span> &nbsp;
         <span className="font-italic">
-          <span className="font-italic">-</span>
+          <span className="font-italic">1</span>
         </span>
       </div>
     </div>

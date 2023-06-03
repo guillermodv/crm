@@ -33,7 +33,7 @@ const GenericsTable = ({
               <td className="text-center">
                 <button
                   type="button"
-                  className="btn btn-success"
+                  className="btn btn-secondary"
                   onClick={() => alert("¿desear modificar?")}
                 >
                   <ShowIcon type={"fas fa-pen"} />

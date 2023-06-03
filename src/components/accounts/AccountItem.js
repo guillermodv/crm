@@ -11,13 +11,7 @@ import {
 } from "../../const";
 
 import AccountCard from "./AccountCard";
-import {
-  ShowIconWithLabel,
-  GenericsTable,
-  NotesTable,
-  Error,
-  ShowIcon,
-} from "../commons";
+import { GenericsTable, NotesTable, Error, ShowIcon } from "../commons";
 
 import { requestAccount, requestRemoveAccount } from "../../actions/accounts";
 
@@ -157,7 +151,7 @@ const AccountItem = (props) => {
           <div className="card-header" id="headingOne">
             <h5 className="mb-0">
               <button
-                className="btn btn-link"
+                className="btn btn-black"
                 data-toggle="collapse"
                 data-target="#collapseOne"
                 aria-expanded="true"
@@ -187,7 +181,7 @@ const AccountItem = (props) => {
           <div className="card-header" id="headingOne">
             <h5 className="mb-0">
               <button
-                className="btn btn-link"
+                className="btn btn-black"
                 data-toggle="collapse"
                 data-target="#collapseOne"
                 aria-expanded="true"
@@ -217,7 +211,7 @@ const AccountItem = (props) => {
           <div className="card-header" id="headingOne">
             <h5 className="mb-0">
               <button
-                className="btn btn-link"
+                className="btn btn-black"
                 data-toggle="collapse"
                 data-target="#collapseOne"
                 aria-expanded="true"
